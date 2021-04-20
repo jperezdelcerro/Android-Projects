@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dataInput">
+
+    <fragment
+        android:id="@+id/dataInput"
+        android:name="com.desarrolloaplicaciones.login.DataInput"
+        android:label="fragment_data_input"
+        tools:layout="@layout/fragment_data_input" >
+        <action
+            android:id="@+id/action_dataInput_to_hiUser"
+            app:destination="@id/hiUser" />
+    </fragment>
+    <fragment
+        android:id="@+id/hiUser"
+        android:name="com.desarrolloaplicaciones.login.HiUser"
+        android:label="fragment_hi_user"
+        tools:layout="@layout/fragment_hi_user" >
+        <argument android:name="aUser" />
+    </fragment>
+</navigation>
