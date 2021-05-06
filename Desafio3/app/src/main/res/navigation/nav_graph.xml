@@ -26,5 +26,9 @@
         android:id="@+id/listDetail"
         android:name="com.desarrolloaplicaciones.desafio3.Fragments.ListDetail"
         android:label="fragment_list_detail"
-        tools:layout="@layout/fragment_list_detail" />
+        tools:layout="@layout/fragment_list_detail" >
+        <argument
+            android:name="aFood"
+            app:argType="com.desarrolloaplicaciones.desafio3.Clases.Food" />
+    </fragment>
 </navigation>

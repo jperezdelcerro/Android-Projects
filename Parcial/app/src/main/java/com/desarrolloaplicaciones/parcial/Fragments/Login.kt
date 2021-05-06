@@ -1,4 +1,4 @@
-package com.desarrolloaplicaciones.desafio3.Fragments
+package com.desarrolloaplicaciones.parcial.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.navigation.findNavController
-import com.desarrolloaplicaciones.desafio3.R
-import com.desarrolloaplicaciones.desafio3.Clases.User
+import com.desarrolloaplicaciones.parcial.R
+import com.desarrolloaplicaciones.parcial.clases.User
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -54,7 +54,7 @@ class Login : Fragment() {
             var newUser = User(usernameDataInput.text.toString(),passDataInput.text.toString())
             if(findUser(newUser)){
 
-                val action = LoginDirections.actionLoginToList()
+                val action = LoginDirections.actionLoginToListActivity()
                 v.findNavController().navigate(action)
 
             }else{

@@ -1,4 +1,4 @@
-package com.desarrolloaplicaciones.desafio3
+package com.desarrolloaplicaciones.parcial.clases
 
 class User(var user: String, var pw: String) {
 
