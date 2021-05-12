@@ -15,17 +15,25 @@
             app:destination="@id/detailSubject" />
     </fragment>
     <fragment
+        android:id="@+id/addSubject"
+        android:name="com.desarrolloaplicaciones.parcial.fragments.addSubject"
+        android:label="fragment_add_subject"
+        tools:layout="@layout/fragment_add_subject" >
+        <action
+            android:id="@+id/action_addSubject_to_settingsActivity2"
+            app:destination="@id/settingsActivity" />
+    </fragment>
+    <fragment
         android:id="@+id/detailSubject"
         android:name="com.desarrolloaplicaciones.parcial.fragments.DetailSubject"
         android:label="fragment_detail_subject"
         tools:layout="@layout/fragment_detail_subject" >
         <argument
-            android:name="aSubject"
+            android:name="aSub"
             app:argType="com.desarrolloaplicaciones.parcial.clases.Subject" />
     </fragment>
-    <fragment
-        android:id="@+id/addSubject"
-        android:name="com.desarrolloaplicaciones.parcial.fragments.addSubject"
-        android:label="fragment_add_subject"
-        tools:layout="@layout/fragment_add_subject" />
+    <activity
+        android:id="@+id/settingsActivity"
+        android:name="com.desarrolloaplicaciones.parcial.activities.SettingsActivity"
+        android:label="SettingsActivity" />
 </navigation>

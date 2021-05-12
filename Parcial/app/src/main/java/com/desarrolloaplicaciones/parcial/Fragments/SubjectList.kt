@@ -14,6 +14,7 @@ import com.desarrolloaplicaciones.parcial.clases.Subject
 
 
 class SubjectList : Fragment() {
+
     lateinit var v: View
 
     lateinit var rec: RecyclerView
@@ -63,10 +64,11 @@ class SubjectList : Fragment() {
 
     fun onItemClick ( aSub : Subject) : Boolean {
 
-
+        //val action = SubjectListDirections.actionSubjectListToSubjectActivity(aSub)
         val action = SubjectListDirections.actionSubjectListToDetailSubject(aSub)
         v.findNavController().navigate(action)
         return true
+
     }
 
 

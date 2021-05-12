@@ -9,6 +9,8 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.navigation.findNavController
 import com.desarrolloaplicaciones.parcial.R
+import com.desarrolloaplicaciones.parcial.db.UserDao
+import com.desarrolloaplicaciones.parcial.db.appDatabase
 import com.desarrolloaplicaciones.parcial.clases.User
 import com.google.android.material.snackbar.Snackbar
 
@@ -19,9 +21,15 @@ class Login : Fragment() {
     var RegisteredUsers: MutableList<User> = ArrayList<User>()
 
     lateinit var v: View
+
+    lateinit var db: appDatabase
+    lateinit var userDao: UserDao
+
     lateinit var usernameDataInput: EditText
     lateinit var passDataInput: EditText
     lateinit var goButton: Button
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,11 +55,16 @@ class Login : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        RegisteredUsers.add(User("josefina","josefina"))
+        db = appDatabase.getAppDataBase(v.context)!!
+        userDao = db?.userDao()
+
+        RegisteredUsers = userDao?.loadAllPersons() as MutableList<User>
+
+
 
         goButton.setOnClickListener {
 
-            var newUser = User(usernameDataInput.text.toString(),passDataInput.text.toString())
+            var newUser = User(1,usernameDataInput.text.toString(),passDataInput.text.toString())
             if(findUser(newUser)){
 
                 val action = LoginDirections.actionLoginToListActivity()

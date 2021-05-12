@@ -10,6 +10,7 @@ import android.widget.TextView
 import com.desarrolloaplicaciones.parcial.R
 
 
+
 class DetailSubject : Fragment() {
     lateinit var v: View
     lateinit var s_name: TextView
@@ -32,7 +33,8 @@ class DetailSubject : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        var mySub = DetailSubjectArgs.fromBundle(requireArguments()).aSubject
+        //var mySub = SubjectActivityArgs.fromBundle(requireArguments()).aSub
+        var mySub = DetailSubjectArgs.fromBundle(requireArguments()).aSub
         s_name.text = mySub.name
 
         //text_description = myFood.description
