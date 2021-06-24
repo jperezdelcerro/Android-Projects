@@ -5,57 +5,134 @@
     android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/subjectscreen"
     tools:context=".fragments.DetailSubject">
 
+
     <ImageView
-        android:id="@+id/subImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline14"
-        app:layout_constraintStart_toStartOf="@+id/guideline15"
-        app:layout_constraintTop_toTopOf="@+id/guideline13"
-        app:layout_constraintVertical_bias="0.462"
-        tools:src="@tools:sample/avatars" />
+        android:id="@+id/subjectImage"
+        android:layout_width="333dp"
+        android:layout_height="184dp"
+        android:backgroundTintMode="add"
+        android:radius="50dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cuadriculada"
+        app:cornerRadius="20dp"
+        app:elevation="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline214"
+        app:layout_constraintEnd_toStartOf="@+id/guideline316"
+        app:layout_constraintStart_toStartOf="@+id/guideline315"
+        app:layout_constraintTop_toTopOf="@+id/guideline313" />
 
     <TextView
         android:id="@+id/subName"
+        android:layout_width="268dp"
+        android:layout_height="63dp"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="50dp"
+        android:clickable="true"
+        android:padding="10dp"
+        android:text="Subject name"
+
+        android:textColor="@color/canva2_darkgreen"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline316"
+        app:layout_constraintHorizontal_bias="0.176"
+        app:layout_constraintStart_toStartOf="@+id/guideline315"
+        app:layout_constraintTop_toTopOf="@+id/guideline214" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/deleteBt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline14"
-        app:layout_constraintEnd_toStartOf="@+id/guideline16"
-        app:layout_constraintStart_toEndOf="@+id/subImage"
-        app:layout_constraintTop_toTopOf="@+id/guideline13" />
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="35dp"
+        android:clickable="true"
+        android:src="@android:drawable/ic_menu_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fab"
+        app:layout_constraintHorizontal_bias="0.896"
+        app:layout_constraintStart_toStartOf="@+id/guideline315"
+        app:layout_constraintTop_toTopOf="@+id/guideline313"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginBottom="35dp"
+        android:contentDescription="edit"
+        android:src="@android:drawable/ic_menu_edit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline316"
+        app:layout_constraintTop_toTopOf="@+id/guideline313"
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline13"
+        android:id="@+id/guideline313"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.05" />
+        app:layout_constraintGuide_percent="0.051983584" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline14"
+        android:id="@+id/guideline214"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.3" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline15"
+        android:id="@+id/guideline315"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="35dp" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline16"
+        android:id="@+id/guideline316"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="370dp" />
+        app:layout_constraintGuide_percent="0.9" />
+
+    <TextView
+        android:id="@+id/schedule"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="50dp"
+        android:padding="10dp"
+        android:text="Viernes de 19 a 23 hs"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/canva2_blue"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline316"
+        app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintStart_toStartOf="@+id/guideline315"
+        app:layout_constraintTop_toBottomOf="@+id/subName" />
+
+    <TextView
+        android:id="@+id/link"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="45dp"
+        android:autoLink="web"
+        android:padding="10dp"
+        android:text="canva.com"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/canva_blue"
+        android:textColorHint="@color/canva2_blue"
+        android:textColorLink="@color/canva2_blue"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline316"
+        app:layout_constraintHorizontal_bias="0.989"
+        app:layout_constraintStart_toStartOf="@+id/guideline315"
+        app:layout_constraintTop_toBottomOf="@+id/schedule"
+        app:layout_constraintVertical_bias="0.103" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

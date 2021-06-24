@@ -1,5 +1,7 @@
 package com.desarrolloaplicaciones.parcial.fragments
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -31,6 +33,8 @@ class Login : Fragment() {
     lateinit var goButton: Button
     lateinit var singUp: TextView
     lateinit var foundUser: User
+
+    private val PREF_NAME = "myPreferences"
 
 
 
@@ -70,13 +74,22 @@ class Login : Fragment() {
 
 
 
+        val sharedPref: SharedPreferences = requireContext().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+
+
+
+
 
 
         goButton.setOnClickListener {
 
 
-            if(findUser(usernameDataInput.text.toString(),passDataInput.text.toString())){
+            val user = findUser(usernameDataInput.text.toString(),passDataInput.text.toString())
+            if(user != null){
 
+                editor.putInt("USERID", user.id)
+                editor.apply()
                 val action = LoginDirections.actionLoginToListActivity()
                 v.findNavController().navigate(action)
                 Snackbar.make(v,"Hi" + foundUser.username + "!", Snackbar.LENGTH_LONG).show()
@@ -106,20 +119,20 @@ class Login : Fragment() {
 
 
     }
-    private fun findUser(userName: String,passWord:String): Boolean {
+    private fun findUser(userName: String,passWord:String): User? {
 
 
         for (user in RegisteredUsers){
 
             if(user.verifyUser(userName,passWord)){
                 foundUser = user
-                return true
+                return user
             }
 
 
         }
 
-        return false
+        return null
 
     }
 }

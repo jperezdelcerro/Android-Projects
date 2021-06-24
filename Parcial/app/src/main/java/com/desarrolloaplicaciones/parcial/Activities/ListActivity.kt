@@ -8,10 +8,14 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import androidx.preference.PreferenceManager
 import com.desarrolloaplicaciones.parcial.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.bottomnavigation.LabelVisibilityMode.LABEL_VISIBILITY_LABELED
+import com.google.android.material.bottomnavigation.LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
 
 
 class ListActivity : AppCompatActivity() {
@@ -39,6 +43,14 @@ class ListActivity : AppCompatActivity() {
         bottomNavView = findViewById(R.id.bottom_bar)
 
         NavigationUI.setupWithNavController(bottomNavView, navHostFragment.navController)
+
+        val prefs = PreferenceManager.getDefaultSharedPreferences(this.applicationContext)
+
+        when (prefs.getBoolean("button_key",false)) {
+            true -> bottomNavView.labelVisibilityMode = LABEL_VISIBILITY_LABELED
+            false -> bottomNavView.labelVisibilityMode = LABEL_VISIBILITY_UNLABELED
+
+        }
 
 
     }

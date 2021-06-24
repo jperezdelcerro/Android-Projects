@@ -14,70 +14,71 @@ import com.desarrolloaplicaciones.parcial.db.SubjectDao
 import com.desarrolloaplicaciones.parcial.db.appDatabase
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.fragment_detail_subject.*
 
 
-class DetailSubject : Fragment() {
+class EditSubject : Fragment() {
 
     lateinit var v: View
     lateinit var name: TextView
     lateinit var s_image_view: ImageView
     lateinit var link: TextView
     lateinit var schedule: TextView
-    lateinit var editBt: FloatingActionButton
+    lateinit var saveBt: Button
     lateinit var deleteBt: FloatingActionButton
-
 
     lateinit var db: appDatabase
     lateinit var subjectDao: SubjectDao
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        v = inflater.inflate(R.layout.fragment_detail_subject, container, false)
-        name = v.findViewById(R.id.subName)
-        link = v.findViewById(R.id.link)
-        schedule = v.findViewById(R.id.schedule)
-//      s_image_view = v.findViewById(R.id.subjectImage)
-        editBt = v.findViewById(R.id.fab)
-        deleteBt = v.findViewById(R.id.deleteBt)
+        v = inflater.inflate(R.layout.fragment_edit_subject, container, false)
+        name = v.findViewById(R.id.editSubName)
+        link = v.findViewById(R.id.editLink)
+        schedule = v.findViewById(R.id.editSchedule)
+        saveBt = v.findViewById(R.id.save_button)
+
+
+
 
         return v
     }
 
-
     override fun onStart() {
         super.onStart()
 
-        //var mySub = SubjectActivityArgs.fromBundle(requireArguments()).aSub
-        var mySub = DetailSubjectArgs.fromBundle(requireArguments()).aSub
+        var mySub = EditSubjectArgs.fromBundle(requireArguments()).mySub
         name.text = mySub.name
         link.text = mySub.link
+        schedule.text = mySub.schedule
 
 
         db = appDatabase.getAppDataBase(v.context)!!
         subjectDao = db?.subjectDao()
 
-        editBt.setOnClickListener{
 
-            val action = DetailSubjectDirections.actionDetailSubjectToEditSubject(mySub)
-            v.findNavController().navigate(action)
+        saveBt.setOnClickListener {
+
+
+            mySub.name = name.text.toString()
+            mySub.link = link.text.toString()
+            mySub.schedule = schedule.text.toString()
+
+            subjectDao.updatePerson(mySub)
+
+            Snackbar.make(v,mySub.name + " already save!", Snackbar.LENGTH_LONG).show()
 
         }
 
 
-        deleteBt.setOnClickListener {
 
-            Snackbar.make(v,mySub.name + " delete :(", Snackbar.LENGTH_LONG).show()
-            subjectDao.delete(mySub)
-            val action = DetailSubjectDirections.actionDetailSubjectToSubjectList()
-            v.findNavController().navigate(action)
-        }
 
-        //text_description = myFood.description
 
     }
 }

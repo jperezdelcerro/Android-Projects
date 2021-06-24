@@ -2,23 +2,23 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory app:title="@string/text_header">
+    <PreferenceCategory app:title="@string/settings_text_header">
 
         <ListPreference
             app:defaultValue="black"
             app:entries="@array/text_entries"
             app:entryValues="@array/text_values"
             app:key="text_key"
-            app:title="@string/text_title"
+            app:title="@string/settings_text_title"
             app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="@string/button_header">
+    <PreferenceCategory app:title="@string/settings_button_header">
 
         <SwitchPreferenceCompat
             app:key="button_key"
-            app:title="@string/button_title"
+            app:title="@string/settings_button_title"
             />
 
     </PreferenceCategory>

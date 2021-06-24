@@ -4,14 +4,15 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.desarrolloaplicaciones.parcial.clases.Subject
 
 import com.desarrolloaplicaciones.parcial.clases.User
 
-@Database(entities = [User::class/*,Subject::class*/], version = 5, exportSchema = false)
+@Database(entities = [User::class, Subject::class], version = 7, exportSchema = false)
 public  abstract class appDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
-   // abstract fun subjectDao(): SubjectDao
+   abstract fun subjectDao(): SubjectDao
 
 
 
