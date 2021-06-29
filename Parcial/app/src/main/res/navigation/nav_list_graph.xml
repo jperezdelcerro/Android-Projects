@@ -31,9 +31,28 @@
         <argument
             android:name="aSub"
             app:argType="com.desarrolloaplicaciones.parcial.clases.Subject" />
+        <action
+            android:id="@+id/action_detailSubject_to_editSubject"
+            app:destination="@id/editSubject" />
+        <action
+            android:id="@+id/action_detailSubject_to_subjectList"
+            app:destination="@id/subjectList" />
     </fragment>
     <activity
         android:id="@+id/settingsActivity"
         android:name="com.desarrolloaplicaciones.parcial.activities.SettingsActivity"
         android:label="SettingsActivity" />
+    <fragment
+        android:id="@+id/exams"
+        android:name="com.desarrolloaplicaciones.parcial.fragments.Exams"
+        android:label="fragment_exams"
+        tools:layout="@layout/fragment_exams" />
+    <fragment
+        android:id="@+id/editSubject"
+        android:name="com.desarrolloaplicaciones.parcial.fragments.EditSubject"
+        android:label="fragment_edit_subject"
+        tools:layout="@layout/fragment_edit_subject" >
+        <argument android:name="mySub"
+            app:argType="com.desarrolloaplicaciones.parcial.clases.Subject" />
+    </fragment>
 </navigation>

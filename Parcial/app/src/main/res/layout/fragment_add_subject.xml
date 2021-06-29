@@ -5,76 +5,127 @@
     android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/subjectscreen"
     tools:context=".fragments.addSubject">
 
-    <Button
-        android:id="@+id/buttonLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginBottom="150dp"
-        android:text="Add"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="@+id/guideline4" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Subject Name"
-        tools:layout_editor_absoluteX="110dp"
-        tools:layout_editor_absoluteY="292dp" />
+        android:id="@+id/subName"
+        android:layout_width="268dp"
+        android:layout_height="63dp"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="35dp"
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" />
+        android:clickable="true"
+        android:padding="10dp"
+        android:text="Subject name"
+        android:textColor="@color/canva2_darkgreen"
+        android:textColorHint="@color/canva2_blue"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline316"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline315"
+        app:layout_constraintTop_toBottomOf="@+id/subjectImage" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="60dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="60dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="100dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_end="100dp" />
-
-    <Button
-        android:id="@+id/settings_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="settings"
-        tools:layout_editor_absoluteX="152dp"
-        tools:layout_editor_absoluteY="508dp" />
+    <EditText
+        android:id="@+id/schedule"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="50dp"
+        android:padding="10dp"
+        android:text="Viernes de 19 a 23 hs"
+        android:textAlignment="center"
+        android:textColor="@color/canva2_blue"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline316"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline315"
+        app:layout_constraintTop_toBottomOf="@+id/subName" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/subjectImage"
+        android:layout_width="313dp"
+        android:layout_height="173dp"
+        android:backgroundTintMode="add"
+        android:radius="50dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cuadriculada"
+        app:cornerRadius="20dp"
+        app:elevation="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline214"
+        app:layout_constraintEnd_toStartOf="@+id/guideline316"
+        app:layout_constraintStart_toStartOf="@+id/guideline315"
+        app:layout_constraintTop_toTopOf="@+id/guideline313" />
+
+    <EditText
+        android:id="@+id/link"
+        android:layout_width="196dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="50dp"
+        android:autoLink="web"
+        android:padding="10dp"
+        android:text="canva.com"
+        android:textAlignment="center"
+        android:textColor="@color/canva_blue"
+        android:textColorHint="@color/canva2_blue"
+        android:textColorLink="@color/canva2_blue"
+
+        android:textSize="18dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline316"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline315"
+        app:layout_constraintTop_toBottomOf="@+id/schedule" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline313"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo_"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-58dp" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline317"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9092105" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline214"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline315"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline316"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+
+    <Button
+        android:id="@+id/add_button"
+        android:layout_width="130dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="600dp"
+        android:layout_marginBottom="40dp"
+        android:background="@color/stabilo_pink"
+        android:text="ADD"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline316"
+        app:layout_constraintStart_toStartOf="@+id/guideline315"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,4 +7,35 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="canva_purple">#8C52FF</color>
+    <color name="canva_light_blue">#5CE1E6</color>
+    <color name="canva_blue">#004AAD</color>
+    <color name="canva_gray">#3D3D3D</color>
+    <color name="canva_yellow">#FFBD59</color>
+    <color name="light_yellow">#8Cffffb1</color>
+    <color name="subject_color_font">#8d8d8d</color>
+    <color name="input_text">#FFFFFFFF</color>
+
+    <color name="stabilo_yellow">#8CFDDF7E</color>
+    <color name="stabilo_pink">#8CF6A5EB</color>
+    <color name="stabilo_red">#8CFAA990</color>
+    <color name="stabilo_green">#8C9BFBE1</color>
+    <color name="stabilo_blue">#8C67EBFA</color>
+    <color name="stabilo_violet">#8CCE97FD</color>
+
+
+
+    <color name="canva_green1">#63B8A7</color>
+    <color name="canva_whitegrey">#EDEDED</color>
+    <color name="canva_pinky">#E5B9A3</color>
+    <color name="canva_pinky_light">#8CE5B9A3</color>
+    <color name="canva2_blue">#09427D</color>
+    <color name="canva2_grey">#63B8A7</color>
+    <color name="canva2_darkgreen">#264C3D</color>
+
+    #264C3D
+
+
+
 </resources>

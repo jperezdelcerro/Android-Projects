@@ -24,25 +24,10 @@ class SubjectListAdapter(private var subjectList: MutableList<Subject>,
     }
 
     override fun onBindViewHolder(holder: SubHolder, position: Int) {
-        subjectList[position].subjectName?.let { holder.setName(it) }
-        var linkImage = "https://cdn.iconscout.com/icon/free/png-512/workbook-2185031-1827413.png"
-        if(subjectList[position].image != null ){
+        subjectList[position].name?.let { holder.setName(it) }
 
-            linkImage = subjectList[position].image.toString()
-        }
 
-       /* Glide
-            .with(context)
-            .load(linkImage )
 
-            .centerInside()
-            .into(holder.getImage());
-
-*/
-        /* holder.getCardLayout().setOnLongClickListener() {
-             //onItemClick(position)
-
-         }*/
 
         holder.getButton().setOnClickListener {
 
@@ -70,8 +55,8 @@ class SubjectListAdapter(private var subjectList: MutableList<Subject>,
             return view.findViewById(R.id.card_package_item)
         }
 
-        fun getButton (): Button {
-            return view.findViewById(R.id.button)
+        fun getButton (): TextView {
+            return view.findViewById(R.id.txt_name_item)
         }
 
         fun getImage(): ImageView{

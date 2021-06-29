@@ -2,26 +2,58 @@ package com.desarrolloaplicaciones.parcial.clases
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-class Subject(var name: String?, var image: String?):Parcelable{
+@Entity(tableName = "subjects")
+class Subject(id: Int,userId:Int, name: String, link: String, schedule: String):Parcelable {
 
 
-    var subjectName: String? = name
-    var subjectIcon: String? = image
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    var id : Int
+
+    @ColumnInfo(name = "userId")
+    var userId : Int
+
+    @ColumnInfo(name = "name")
+    var name : String
+
+    @ColumnInfo(name = "link")
+    var link: String
+    
+    @ColumnInfo(name = "schedule")
+    var schedule: String
 
     constructor(parcel: Parcel) : this(
-        parcel.readString(),
-        parcel.readString()
+        TODO("id"),
+        TODO("userId"),
+        TODO("name"),
+        TODO("link"),
+        TODO("schedule")
     ) {
-        subjectName = parcel.readString().toString()
-        subjectIcon = parcel.readString().toString()
+        id = parcel.readInt()
+        userId = parcel.readInt()
+        name = parcel.readString().toString()
+        link = parcel.readString().toString()
+        schedule = parcel.readString().toString()
+    }
+
+    init {
+        this.id = id
+        this.userId = userId
+        this.name = name
+        this.link = link
+        this.schedule = schedule
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeInt(id)
+        parcel.writeInt(userId)
         parcel.writeString(name)
-        parcel.writeString(image)
-        parcel.writeString(subjectName)
-        parcel.writeString(subjectIcon)
+        parcel.writeString(link)
+        parcel.writeString(schedule)
     }
 
     override fun describeContents(): Int {
@@ -37,5 +69,6 @@ class Subject(var name: String?, var image: String?):Parcelable{
             return arrayOfNulls(size)
         }
     }
+
 
 }

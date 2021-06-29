@@ -1,35 +1,38 @@
 package com.desarrolloaplicaciones.parcial.clases
 
+import android.text.Editable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
 @Entity(tableName = "users")
-class User(id: Int,var user: String, var pw: String) {
+class User(id: Int, username: String, password: String) {
 
-    @PrimaryKey
+
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     var id : Int
 
     @ColumnInfo(name = "username")
-    var userName: String
+    var username: String
 
     @ColumnInfo(name = "password")
-    var passWord: String
+    var password: String
 
 
     init {
         this.id = id
-        this.userName = user
-        this.passWord = pw
+        this.username = username
+        this.password = password
 
     }
 
-    /*fun verifyUser (aUser: String, aPass: String): Boolean {
+    fun verifyUser(aUser: String, aPass: String): Boolean {
 
-        return (aUser == this.userName) and (aPass == this.passWord)
+        return (aUser == this.username) and (aPass == this.password)
 
 
-    }*/
+    }
+
 }

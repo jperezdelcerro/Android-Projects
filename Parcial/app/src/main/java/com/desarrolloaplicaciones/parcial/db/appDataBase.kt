@@ -4,13 +4,16 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.desarrolloaplicaciones.parcial.clases.Subject
+
 import com.desarrolloaplicaciones.parcial.clases.User
 
-
-@Database(entities = [UserDao::class], version = 3, exportSchema = false)
+@Database(entities = [User::class, Subject::class], version = 7, exportSchema = false)
 public  abstract class appDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
+   abstract fun subjectDao(): SubjectDao
+
 
 
     companion object {
@@ -20,9 +23,9 @@ public  abstract class appDatabase : RoomDatabase() {
             if (INSTANCE == null) {
                 synchronized(appDatabase::class) {
                     INSTANCE = Room.databaseBuilder(
-                            context.applicationContext,
-                            appDatabase::class.java,
-                            "db"
+                        context.applicationContext,
+                        appDatabase::class.java,
+                        "db"
                     ).allowMainThreadQueries().fallbackToDestructiveMigration().build() // No es lo mas recomendable que se ejecute en el mainthread
                 }
             }

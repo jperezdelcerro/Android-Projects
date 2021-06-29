@@ -1,5 +1,7 @@
 package com.desarrolloaplicaciones.parcial.fragments
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,11 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.navigation.findNavController
 import com.desarrolloaplicaciones.parcial.R
+import com.desarrolloaplicaciones.parcial.clases.User
 import com.desarrolloaplicaciones.parcial.db.UserDao
 import com.desarrolloaplicaciones.parcial.db.appDatabase
-import com.desarrolloaplicaciones.parcial.clases.User
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -28,6 +31,10 @@ class Login : Fragment() {
     lateinit var usernameDataInput: EditText
     lateinit var passDataInput: EditText
     lateinit var goButton: Button
+    lateinit var singUp: TextView
+    lateinit var foundUser: User
+
+    private val PREF_NAME = "myPreferences"
 
 
 
@@ -43,9 +50,10 @@ class Login : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_login, container, false)
-        usernameDataInput = v.findViewById(R.id.editTextTextPersonName)
+        usernameDataInput = v.findViewById(R.id.txtUsername)
         passDataInput = v.findViewById(R.id.editTextTextPassword)
         goButton = v.findViewById(R.id.buttonLogin)
+        singUp = v.findViewById(R.id.singup)
         return v
     }
 
@@ -55,20 +63,36 @@ class Login : Fragment() {
     override fun onStart() {
         super.onStart()
 
+        //RegisteredUsers.add(User(1,"josefina","josefina"))
+
         db = appDatabase.getAppDataBase(v.context)!!
         userDao = db?.userDao()
+
+        //userDao?.insertPerson(User(0,'josefina','josefina'))
 
         RegisteredUsers = userDao?.loadAllPersons() as MutableList<User>
 
 
 
+        val sharedPref: SharedPreferences = requireContext().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+
+
+
+
+
+
         goButton.setOnClickListener {
 
-            var newUser = User(1,usernameDataInput.text.toString(),passDataInput.text.toString())
-            if(findUser(newUser)){
 
+            val user = findUser(usernameDataInput.text.toString(),passDataInput.text.toString())
+            if(user != null){
+
+                editor.putInt("USERID", user.id)
+                editor.apply()
                 val action = LoginDirections.actionLoginToListActivity()
                 v.findNavController().navigate(action)
+                Snackbar.make(v,"Hi" + foundUser.username + "!", Snackbar.LENGTH_LONG).show()
 
             }else{
 
@@ -83,24 +107,32 @@ class Login : Fragment() {
 
         }
 
+        singUp.setOnClickListener{
+
+            val action = LoginDirections.actionLoginToAddUser()
+            v.findNavController().navigate(action)
+
+        }
+
 
 
 
 
     }
-    private fun findUser(newUser: User): Boolean {
+    private fun findUser(userName: String,passWord:String): User? {
 
 
         for (user in RegisteredUsers){
 
-            if(user.verifyUser(newUser.userName,newUser.passWord)){
-                return true
+            if(user.verifyUser(userName,passWord)){
+                foundUser = user
+                return user
             }
 
 
         }
 
-        return false
+        return null
 
     }
 }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "682744215570",
+    "project_id": "studently-bce47",
+    "storage_bucket": "studently-bce47.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682744215570:android:0c0177ac1cc4fe9e0c40cb",
+        "android_client_info": {
+          "package_name": "com.desarrolloaplicaciones.parcial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "682744215570-1cq3ucnnjkdcgke536bik34kmdqv46jl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgnuCbTS1cq4JOMH_rCgC_zJztfM-OuAY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "682744215570-1cq3ucnnjkdcgke536bik34kmdqv46jl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
